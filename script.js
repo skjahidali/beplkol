@@ -92,22 +92,28 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.hero-text > *', {
-    y: 40,
-    opacity: 0,
-    duration: 0.9,
-    stagger: 0.12,
-    ease: 'power3.out',
-    delay: 0.2
-  });
+  const heroTextElements = gsap.utils.toArray('.hero-text > *');
+  if (heroTextElements.length) {
+    gsap.from(heroTextElements, {
+      y: 40,
+      opacity: 0,
+      duration: 0.9,
+      stagger: 0.12,
+      ease: 'power3.out',
+      delay: 0.2
+    });
+  }
 
-  gsap.from('.hero-card', {
-    x: 60,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out',
-    delay: 0.5
-  });
+  const heroCard = document.querySelector('.hero-card');
+  if (heroCard) {
+    gsap.from(heroCard, {
+      x: 60,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out',
+      delay: 0.5
+    });
+  }
 
   gsap.utils.toArray('.section-title, .section-label, .section-desc').forEach(element => {
     gsap.from(element, {
@@ -133,23 +139,29 @@ if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
 
     // ========== AI CHAT LOGIC ==========
     const knowledge = {
-      capabilities: "We specialize in Civil Infrastructure & Engineering, Industrial & Specialized Projects (RMHS, crushers, heavy machinery foundations), Technical Consultancy & Design, and full Project Management & Execution including RA bills, JMR auditing and PVC settlements.",
-      experience: "Our leadership has collectively managed over ₹3,300 Cr across multi-story residential, commercial plazas, power, steel, chemical, railway and metro projects. CEO: 24+ yrs, COO: 17+ yrs, VP-BD: 22+ yrs, CFO: 17+ yrs.",
-      safety: "We maintain a strict Zero-Tolerance safety culture. Daily Toolbox Talks (TBT), mandatory PPE, active hazard identification, continuous HSE training, and a commitment to Zero Harm on every site.",
-      quality: "Our Quality Policy focuses on uncompromising technical precision, zero-defect execution, JMR auditing, continuous improvement and full regulatory compliance.",
-      contact: "HQ: New Sunrise Apartment, Swami Vivekananda Rd, Noapara, Hatiara, Newtown, Kolkata – 700157. Phone: +91 85284 78830 / +91 93338 83330. Email: info@beplkol.com",
-      company: "Bewandert Engineers Private Limited (BEPL) was incorporated on 18 May 2023 (CIN: U71100WB2023PTC262113). We are MSME registered, EPF & ESI compliant, and focused on civil-infra and industrial engineering.",
-      default: "I can help with our capabilities, leadership experience, safety (HSE) protocols, quality policy, RA/JMR processes, or contact details. What would you like to explore?"
+      capabilities: "BEPL's four service areas are Civil Infrastructure & Engineering (site development, foundations and structural works); Technical Consultancy & Design (engineering evaluation, structural analysis, design optimization, feasibility studies and Quantity Survey); Industrial & Specialized Projects (heavy machinery foundations, mobile crushers, wheel washeries and RMHS yards); and Project Management & Execution. Our focus sectors include power, steel, chemical, railway, road and infrastructure.",
+      projectManagement: "End-to-end contract delivery with rigorous financial oversight — Establishing baseline schedules, budgets, and resource allocation. Managing daily site operations, quality standards, and safety protocols. Mitigating risks, resolving variances, and ensuring successful project handover. Contract administration also covers Running Account (RA) bill management, Joint Measurement Record (JMR) auditing and Price Variation Clause (PVC) settlements.",
+      safety: "BEPL's HSE policy commits to Zero Harm for employees, subcontractors, surrounding communities and the environment. It covers mandatory PPE, active hazard identification, pre-shift Toolbox Talks (TBT), regulatory compliance, environmental protection, continuing HSE training, incident prevention and continual improvement.",
+      quality: "BEPL's Quality Policy covers approved engineering designs and material standards, systematic verification and JMR auditing, customer and stakeholder satisfaction, continuous improvement, workforce training and applicable statutory compliance.",
+      ethics: "BEPL's Code of Ethics requires honest conduct, zero tolerance for bribery and corruption, accurate and verifiable financial records, fairness and respect, conflict-of-interest awareness, confidentiality and compliance. The portfolio also describes a whistleblower vigil mechanism and a zero-tolerance commitment to workplace sexual harassment.",
+      careers: "For careers enquiries, email your CV and a short note about your experience and preferred area of work to info@beplkol.com or mgsinfo3@gmail.com. Please note that enquiries are not confirmation of a current vacancy.",
+      contact: "Head Office: New Sunrise Apartment, Swami Vivekananda Road, Noapara, Hatiara, Newtown, Kolkata – 700157, West Bengal, India. Overseas office: Dubai, UAE. Telephone: +91 85284 78830, +91 93338 83330, +91 98308 32900 or +91 98302 79495. Email: info@beplkol.com or mgsinfo3@gmail.com.",
+      company: "Bewandert Engineers Private Limited (BEPL) is a private limited company incorporated on 18 May 2023, registered with ROC Kolkata. CIN: U71100WB2023PTC262113. GSTIN: 19AALCB6214F1ZP. The company portfolio lists MSME (Udyam), EPF and ESI registrations and NIC code 711 for infrastructure, civil engineering and transport logistics.",
+      leadership: "Visit the separate Leadership page from the main navigation for portfolio-based leadership information. The supplied portfolio does not include names, photographs or LinkedIn profiles.",
+      default: "I can help with BEPL's four service areas, project management approach, the separate Leadership page, careers enquiries, quality or HSE policies, ethics and speak-up policies, company registration, or contact details. What would you like to explore?"
     };
 
     function getResponse(msg) {
       const lower = msg.toLowerCase();
-      if (lower.includes('capabilit') || lower.includes('service') || lower.includes('what do you') || lower.includes('rmhs') || lower.includes('foundation') || lower.includes('industrial')) return knowledge.capabilities;
-      if (lower.includes('experience') || lower.includes('leadership') || lower.includes('ceo') || lower.includes('coo') || lower.includes('track record') || lower.includes('managed')) return knowledge.experience;
+      if (lower.includes('leadership') || lower.includes('leader') || lower.includes('ceo') || lower.includes('coo') || lower.includes('vp-bd') || lower.includes('cfo') || lower.includes('managed')) return knowledge.leadership;
+      if (lower.includes('project management') || lower.includes('project execution') || lower.includes('schedule') || lower.includes('budget') || lower.includes('handover')) return knowledge.projectManagement;
       if (lower.includes('safety') || lower.includes('hse') || lower.includes('zero') || lower.includes('ppe') || lower.includes('toolbox')) return knowledge.safety;
       if (lower.includes('quality') || lower.includes('jmr') || lower.includes('defect')) return knowledge.quality;
-      if (lower.includes('contact') || lower.includes('address') || lower.includes('phone') || lower.includes('email') || lower.includes('location') || lower.includes('kolkata')) return knowledge.contact;
-      if (lower.includes('company') || lower.includes('about') || lower.includes('cin') || lower.includes('msme') || lower.includes('register')) return knowledge.company;
+      if (lower.includes('career') || lower.includes('job') || lower.includes('cv') || lower.includes('resume')) return knowledge.careers;
+      if (lower.includes('ethic') || lower.includes('whistle') || lower.includes('harass') || lower.includes('posh') || lower.includes('complaint') || lower.includes('bribery')) return knowledge.ethics;
+      if (lower.includes('contact') || lower.includes('address') || lower.includes('phone') || lower.includes('email') || lower.includes('location') || lower.includes('kolkata') || lower.includes('dubai') || lower.includes('uae')) return knowledge.contact;
+      if (lower.includes('company') || lower.includes('about') || lower.includes('cin') || lower.includes('gst') || lower.includes('msme') || lower.includes('epf') || lower.includes('esi') || lower.includes('nic code') || lower.includes('register') || lower.includes('incorporat')) return knowledge.company;
+      if (lower.includes('capabilit') || lower.includes('service') || lower.includes('what do you') || lower.includes('experience') || lower.includes('rmhs') || lower.includes('foundation') || lower.includes('industrial') || lower.includes('road') || lower.includes('power') || lower.includes('steel') || lower.includes('chemical') || lower.includes('railway') || lower.includes('infrastructure') || lower.includes('design') || lower.includes('consult') || lower.includes('crusher') || lower.includes('wheel washer') || lower.includes('mechanical')) return knowledge.capabilities;
       if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey')) return "Hello! How can I assist you with BEPL’s engineering capabilities or project needs today?";
       return knowledge.default;
     }
@@ -163,18 +175,22 @@ if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
     }
 
     // Demo chat (static section)
-    document.getElementById('demoSend').addEventListener('click', () => {
-      const input = document.getElementById('demoInput');
+    const demoSend = document.getElementById('demoSend');
+    const demoInput = document.getElementById('demoInput');
+    if (demoSend && demoInput) {
+      demoSend.addEventListener('click', () => {
+      const input = demoInput;
       const val = input.value.trim();
       if (!val) return;
       const body = document.getElementById('demoChat');
       addMessage(body, val, 'user');
       input.value = '';
       setTimeout(() => addMessage(body, getResponse(val), 'bot'), 600);
-    });
-    document.getElementById('demoInput').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') document.getElementById('demoSend').click();
-    });
+      });
+      demoInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') demoSend.click();
+      });
+    }
 
     // Floating AI modal
     const aiFab = document.getElementById('aiFab');
@@ -185,21 +201,23 @@ if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
     const aiSend = document.getElementById('aiSend');
 
     function setAiModalOpen(isOpen) {
+      if (!aiModal || !aiFab) return;
       aiModal.classList.toggle('open', isOpen);
       aiModal.setAttribute('aria-hidden', String(!isOpen));
       aiFab.setAttribute('aria-expanded', String(isOpen));
-      if (isOpen) aiInput.focus();
+      if (isOpen) aiInput?.focus();
     }
 
-    aiFab.addEventListener('click', () => {
-      setAiModalOpen(!aiModal.classList.contains('open'));
+    aiFab?.addEventListener('click', () => {
+      setAiModalOpen(!aiModal?.classList.contains('open'));
     });
-    closeAi.addEventListener('click', () => {
+    closeAi?.addEventListener('click', () => {
       setAiModalOpen(false);
-      aiFab.focus();
+      aiFab?.focus();
     });
 
     function handleAiSend() {
+      if (!aiInput || !aiChatBody) return;
       const val = aiInput.value.trim();
       if (!val) return;
       addMessage(aiChatBody, val, 'user');
@@ -207,8 +225,8 @@ if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
       setTimeout(() => addMessage(aiChatBody, getResponse(val), 'bot'), 700);
     }
 
-    aiSend.addEventListener('click', handleAiSend);
-    aiInput.addEventListener('keypress', (e) => {
+    aiSend?.addEventListener('click', handleAiSend);
+    aiInput?.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') handleAiSend();
     });
 

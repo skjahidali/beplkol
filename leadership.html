@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leadership | BEWANDERT Engineers Private Limited</title>
+  <meta name="description" content="Meet the experienced leadership team at BEWANDERT Engineers Private Limited, with a track record across industrial, railway and infrastructure projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+</head>
+<body class="is-loading" aria-busy="true">
+  <div class="page-loader" id="pageLoader" role="status" aria-live="polite" aria-label="Loading BEPL website">
+    <div class="loader-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="loader-content">
+      <div class="loader-brand">BEPL</div>
+      <p class="loader-caption">ENGINEERING WHAT'S NEXT</p>
+      <div class="loader-track" aria-hidden="true"><span></span></div>
+      <p class="loader-status">Preparing your experience<span class="loader-dots" aria-hidden="true">...</span></p>
+    </div>
+  </div>
+
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html#home" class="logo" aria-label="BEPL home">
+        <img src="assets/bepl-logo.png" alt="BEWANDERT Engineers" />
+        <div class="logo-text">BEWANDERT <span>ENGINEERS</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#capabilities">Capabilities</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#leadership-team" aria-current="page">Leadership</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="index.html#policies">Policies</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#ai">Info Assistant</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html#contact" class="btn btn-primary">Talk to Us</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
+    <a href="index.html#capabilities">Capabilities</a>
+    <a href="about.html">About</a>
+    <a href="#leadership-team" aria-current="page">Leadership</a>
+    <a href="careers.html">Careers</a>
+    <a href="index.html#policies">Policies</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#ai">Info Assistant</a>
+    <a href="index.html#contact" class="btn btn-primary mobile-menu-cta">Talk to Us</a>
+  </div>
+
+  <main class="leadership-page">
+    <section class="leadership-hero" aria-labelledby="leadership-title">
+      <div class="leadership-hero-grid" aria-hidden="true"></div>
+      <div class="container leadership-hero-content">
+        <a class="leadership-back-link" href="index.html#home"><span aria-hidden="true">←</span> Back to home</a>
+        <div class="section-label">Leadership &amp; Experience</div>
+        <h1 class="leadership-page-title" id="leadership-title">Decades of experience.<br /><span>One direction forward.</span></h1>
+        <p class="leadership-page-intro">
+          Our leaders bring together expertise in industrial operations, infrastructure delivery, business development and financial governance.
+        </p>
+        <div class="leadership-page-stats" aria-label="Leadership experience">
+          <div><strong>80+</strong><span>combined years</span></div>
+          <div><strong>₹3,300 Cr+</strong><span>prior project value managed</span></div>
+          <div><strong>4</strong><span>leadership disciplines</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section leadership-directory" id="leadership-team" aria-labelledby="leadership-directory-title">
+      <div class="container">
+        <div class="leadership-directory-heading">
+          <div>
+            <div class="section-label">The people behind the work</div>
+            <h2 class="section-title" id="leadership-directory-title">Leadership directory</h2>
+          </div>
+          <p class="section-desc">Experience and prior project values below are taken from the BEPL company portfolio.</p>
+        </div>
+
+        <div class="leaders-grid">
+          <article class="leader-card leader-profile-card">
+            <div class="leader-photo-placeholder" role="img" aria-label="CEO portrait will be added">
+              <span class="leader-photo-role">CEO</span>
+              <span class="leader-photo-pending">Portrait to be added</span>
+            </div>
+            <p class="leader-role">Chief Executive Officer</p>
+            <h3 class="leader-name-placeholder">Name to be added</h3>
+            <p class="leader-exp">Postgraduate qualification<br />24+ years of experience</p>
+            <div class="leader-value">₹500 Cr+ <span>prior project value managed</span></div>
+            <p class="leader-sectors">Multi-storey residential towers and commercial plazas</p>
+            <span class="leader-link-placeholder" aria-disabled="true">LinkedIn profile to be added</span>
+          </article>
+
+          <article class="leader-card leader-profile-card">
+            <div class="leader-photo-placeholder" role="img" aria-label="COO portrait will be added">
+              <span class="leader-photo-role">COO</span>
+              <span class="leader-photo-pending">Portrait to be added</span>
+            </div>
+            <p class="leader-role">Chief Operating Officer</p>
+            <h3 class="leader-name-placeholder">Name to be added</h3>
+            <p class="leader-exp">B.E. (Mechanical)<br />17+ years of experience</p>
+            <div class="leader-value">₹2,500 Cr+ <span>prior project value managed</span></div>
+            <p class="leader-sectors">Power, steel, chemical, civil infrastructure and railway projects</p>
+            <span class="leader-link-placeholder" aria-disabled="true">LinkedIn profile to be added</span>
+          </article>
+
+          <article class="leader-card leader-profile-card">
+            <div class="leader-photo-placeholder" role="img" aria-label="Vice President of Business Development portrait will be added">
+              <span class="leader-photo-role">VP-BD</span>
+              <span class="leader-photo-pending">Portrait to be added</span>
+            </div>
+            <p class="leader-role">Vice President — Business Development</p>
+            <h3 class="leader-name-placeholder">Name to be added</h3>
+            <p class="leader-exp">Graduate<br />22+ years of experience</p>
+            <div class="leader-value">₹200 Cr+ <span>prior project value managed</span></div>
+            <p class="leader-sectors">Residential, commercial, civil infrastructure and metro projects</p>
+            <span class="leader-link-placeholder" aria-disabled="true">LinkedIn profile to be added</span>
+          </article>
+
+          <article class="leader-card leader-profile-card">
+            <div class="leader-photo-placeholder" role="img" aria-label="CFO portrait will be added">
+              <span class="leader-photo-role">CFO</span>
+              <span class="leader-photo-pending">Portrait to be added</span>
+            </div>
+            <p class="leader-role">Chief Financial Officer</p>
+            <h3 class="leader-name-placeholder">Name to be added</h3>
+            <p class="leader-exp">MBA<br />17+ years of experience</p>
+            <div class="leader-value">₹100 Cr+ <span>prior project value managed</span></div>
+            <p class="leader-sectors">Civil infrastructure and railway projects</p>
+            <span class="leader-link-placeholder" aria-disabled="true">LinkedIn profile to be added</span>
+          </article>
+        </div>
+
+        <div class="leadership-details-note">
+          <p>Leader names, photographs and LinkedIn profiles were not included in the supplied portfolio. Profile placeholders are shown until those details are available.</p>
+          <a class="leadership-portfolio-link" href="assets/BEPL%20Portfolio-1.pdf" target="_blank" rel="noopener">View company portfolio <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer leadership-footer">
+    <div class="container leadership-footer-inner">
+      <a href="index.html#home" class="logo" aria-label="BEPL home">
+        <img src="assets/bepl-logo.png" alt="BEWANDERT Engineers" />
+        <div class="logo-text">BEWANDERT <span>ENGINEERS</span></div>
+      </a>
+      <p>Building enduring infrastructure through engineering, accountability and experience. Kolkata, India · Overseas office: Dubai, UAE.</p>
+      <a href="index.html#contact" class="btn btn-secondary">Start a conversation</a>
+    </div>
+    <div class="container leadership-footer-bottom">© 2026 Bewandert Engineers Private Limited. All rights reserved.</div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
