@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | BEWANDERT Engineers Private Limited</title>
+  <meta name="description" content="News and updates from BEWANDERT Engineers Private Limited." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="is-loading" aria-busy="true">
+  <div class="page-loader" id="pageLoader" role="status" aria-live="polite" aria-label="Loading BEPL website">
+    <div class="loader-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="loader-content">
+      <div class="loader-brand">BEPL</div>
+      <p class="loader-caption">ENGINEERING WHAT'S NEXT</p>
+      <div class="loader-track" aria-hidden="true"><span></span></div>
+      <p class="loader-status">Preparing your experience<span class="loader-dots" aria-hidden="true">...</span></p>
+    </div>
+  </div>
+
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html#home" class="logo" aria-label="BEPL home">
+        <img src="assets/bepl-logo.png" alt="BEWANDERT Engineers" />
+        <div class="logo-text">BEWANDERT <span>ENGINEERS</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#capabilities">Capabilities</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="leadership.html">Leadership</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="blog.html" aria-current="page">Blog</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html#contact" class="btn btn-primary">Talk to Us</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
+    <a href="index.html#capabilities">Capabilities</a>
+    <a href="about.html">About</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="careers.html">Careers</a>
+    <a href="blog.html" aria-current="page">Blog</a>
+    <a href="index.html#contact" class="btn btn-primary mobile-menu-cta">Talk to Us</a>
+  </div>
+
+  <main class="leadership-page">
+    <section class="leadership-hero" aria-labelledby="blog-title">
+      <div class="leadership-hero-grid" aria-hidden="true"></div>
+      <div class="container leadership-hero-content">
+        <a class="leadership-back-link" href="index.html#home"><span aria-hidden="true">←</span> Back to home</a>
+        <div class="section-label">News &amp; Updates</div>
+        <h1 class="leadership-page-title" id="blog-title">BEPL <span>Blog.</span></h1>
+        <p class="leadership-page-intro">Updates and perspectives from our engineering, infrastructure and project delivery work will appear here.</p>
+      </div>
+    </section>
+
+    <section class="section careers-content" aria-labelledby="blog-updates-title">
+      <div class="container">
+        <div class="section-label">Coming soon</div>
+        <h2 class="section-title" id="blog-updates-title">Updates are on the way</h2>
+        <p class="section-desc">There are no blog posts published yet. Please check back soon for company news and project updates.</p>
+        <a class="btn btn-secondary" href="index.html#capabilities">Explore our capabilities <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer leadership-footer">
+    <div class="container leadership-footer-inner">
+      <a href="index.html#home" class="logo" aria-label="BEPL home">
+        <img src="assets/bepl-logo.png" alt="BEWANDERT Engineers" />
+        <div class="logo-text">BEWANDERT <span>ENGINEERS</span></div>
+      </a>
+      <p>Building enduring infrastructure through engineering, accountability and experience. Kolkata, India · Overseas office: Dubai, UAE.</p>
+      <a href="index.html#contact" class="btn btn-secondary">Start a conversation</a>
+    </div>
+    <div class="container leadership-footer-bottom">© 2026 Bewandert Engineers Private Limited. All rights reserved.</div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
