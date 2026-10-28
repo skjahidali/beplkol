@@ -19,7 +19,7 @@ if (pageLoader) {
     hidePageLoader();
   } else {
     window.addEventListener('load', hidePageLoader, { once: true });
-    loaderFallback = window.setTimeout(hidePageLoader, 8000);
+    loaderFallback = window.setTimeout(hidePageLoader, 1800);
   }
 }
 
@@ -71,6 +71,12 @@ if (menuToggle && mobileMenu && mobileOverlay) {
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => setMenuOpen(false));
   });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && mobileMenu.classList.contains('open')) {
+      setMenuOpen(false);
+    }
+  });
 }
 
     // ========== HERO CARD 3D TILT ==========
@@ -88,8 +94,10 @@ if (menuToggle && mobileMenu && mobileOverlay) {
     }
 
 // ========== GSAP ANIMATIONS ==========
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
+function initializeGsapAnimations() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!window.gsap || !window.ScrollTrigger || prefersReducedMotion || document.hidden) return;
+
   gsap.registerPlugin(ScrollTrigger);
 
   const heroTextElements = gsap.utils.toArray('.hero-text > *');
@@ -136,6 +144,8 @@ if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
     });
   });
 }
+
+window.addEventListener('load', initializeGsapAnimations, { once: true });
 
     // ========== AI CHAT LOGIC ==========
     const knowledge = {
